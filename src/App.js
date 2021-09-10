@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Flex, Heading, Box } from "@chakra-ui/react";
+import { BsInfoCircleFill } from "react-icons/bs";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link as LinkRoute,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import Info from "./pages/Info";
+import SurahPage from "./pages/Surah";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Box position="sticky" top={0}>
+        <Flex
+          bgColor="brand.900"
+          color="white"
+          p={6}
+          alignItems="center"
+          justifyContent="space-between"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Heading as="h4" fontSize={28}>
+            <LinkRoute to="/">QuranKu</LinkRoute>
+          </Heading>
+          <Box>
+            <LinkRoute to="/info">
+              <BsInfoCircleFill size={24} />
+            </LinkRoute>
+          </Box>
+        </Flex>
+      </Box>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/info">
+          <Info />
+        </Route>
+        <Route path="/surah/:id" component={SurahPage} />
+      </Switch>
+    </Router>
   );
 }
 

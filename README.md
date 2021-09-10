@@ -1,3 +1,11 @@
+# Description
+
+This is my project about Quran APP that I have made with React JS and Chakra UI.
+
+## Credit
+
+Quran API from [Sutanlab](https://github.com/sutanlab/quran-api)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
