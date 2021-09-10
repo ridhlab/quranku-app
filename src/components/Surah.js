@@ -27,7 +27,6 @@ export default class Surah extends Component {
       const translation = this.props.surah.name.translation.id;
       this.setState({ translation: translation });
     } catch (err) {}
-    console.log(this.props.surah);
   }
 
   render() {

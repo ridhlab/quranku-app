@@ -20,8 +20,6 @@ export default class Surah extends Component {
     axios
       .get(`https://api.quran.sutanlab.id/surah/${this.state.numSurah}`)
       .then((res) => {
-        console.log(res);
-        console.log(res.data.data.number);
         res.data.data.number !== 1 && res.data.data.number !== 9
           ? this.setState({
               surahName: res.data.data.name.transliteration.id,
