@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider, Container } from "@chakra-ui/react";
+import { ColorModeScript, ChakraProvider, Container } from "@chakra-ui/react";
 import theme from "./theme";
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
     <Container maxW="container.md" px={{ base: 0, md: 2 }}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <App />
     </Container>
   </ChakraProvider>,

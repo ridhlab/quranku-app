@@ -53,7 +53,11 @@ export default class Surah extends Component {
                 alignItems="center"
                 justifyContent="center"
               >
-                <Text fontSize={{ base: 16, md: 20 }} textAlign="center">
+                <Text
+                  fontSize={{ base: 16, md: 20 }}
+                  textAlign="center"
+                  color="gray.800"
+                >
                   {this.state.surahNum}
                 </Text>
               </Flex>

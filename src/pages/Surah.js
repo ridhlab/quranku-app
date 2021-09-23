@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, useColorModeValue } from "@chakra-ui/react";
 import Verse from "../components/Verse";
 import "../index.css";
+
+const BgHeading = () => {
+  const bgColor = useColorModeValue("white", "gray.800");
+  return bgColor;
+};
 
 export default class Surah extends Component {
   constructor(props) {
@@ -36,6 +41,7 @@ export default class Surah extends Component {
             });
       })
       .catch((err) => console.log(err));
+
     return (
       <Box
         border={{ base: "0px", md: "1px" }}
@@ -46,7 +52,7 @@ export default class Surah extends Component {
           py={2}
           position="sticky"
           top={20}
-          bgColor="white"
+          bgColor={BgHeading}
         >
           <Text fontSize={24}>{this.state.surahName}</Text>
           <Text fontSize={20}>
