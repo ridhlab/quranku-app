@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import "../index.css";
 
 export default class Surah extends Component {
-  constructor() {
-    super(global);
+  constructor(props) {
+    super(props);
     this.state = {
       surahNum: "",
       surahName: "",
@@ -67,7 +67,7 @@ export default class Surah extends Component {
                 fontSize={{ base: 20, md: 24 }}
                 onClick={() => this.props.goDetail(this.state.surahNum)}
                 cursor="pointer"
-                _hover={{ color: "brand.900" }}
+                _hover={{ color: { md: "brand.900" } }}
               >
                 Surah {this.state.surahNameId}
               </Text>
