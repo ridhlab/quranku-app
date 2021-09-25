@@ -21,27 +21,30 @@ export default class Surah extends Component {
       verses: [],
     };
   }
+  async componentDidMount() {
+    try {
+      const res = await axios.get(
+        `https://api.quran.sutanlab.id/surah/${this.state.numSurah}`
+      );
+      res.data.data.number !== 1 && res.data.data.number !== 9
+        ? this.setState({
+            surahName: res.data.data.name.transliteration.id,
+            surahTranslation: res.data.data.name.translation.id,
+            bismillah: res.data.data.preBismillah.text.arab,
+            versesNum: res.data.data.numberOfVerses,
+            verses: res.data.data.verses,
+          })
+        : this.setState({
+            surahName: res.data.data.name.transliteration.id,
+            surahTranslation: res.data.data.name.translation.id,
+            versesNum: res.data.data.numberOfVerses,
+            verses: res.data.data.verses,
+          });
+    } catch (err) {
+      console.log(err);
+    }
+  }
   render() {
-    axios
-      .get(`https://api.quran.sutanlab.id/surah/${this.state.numSurah}`)
-      .then((res) => {
-        res.data.data.number !== 1 && res.data.data.number !== 9
-          ? this.setState({
-              surahName: res.data.data.name.transliteration.id,
-              surahTranslation: res.data.data.name.translation.id,
-              bismillah: res.data.data.preBismillah.text.arab,
-              versesNum: res.data.data.numberOfVerses,
-              verses: res.data.data.verses,
-            })
-          : this.setState({
-              surahName: res.data.data.name.transliteration.id,
-              surahTranslation: res.data.data.name.translation.id,
-              versesNum: res.data.data.numberOfVerses,
-              verses: res.data.data.verses,
-            });
-      })
-      .catch((err) => console.log(err));
-
     return (
       <Box
         border={{ base: "0px", md: "1px" }}
@@ -67,7 +70,7 @@ export default class Surah extends Component {
           </Box>
           <Box>
             {this.state.verses.map((verse) => {
-              return <Verse verse={verse} />;
+              return <Verse key={verse.number.inSurah} verse={verse} />;
             })}
           </Box>
         </Box>

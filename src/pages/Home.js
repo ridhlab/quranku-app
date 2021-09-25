@@ -13,13 +13,13 @@ class Home extends Component {
     this.props.history.push(`/surah/${id}`);
   };
 
-  componentWillMount() {
-    axios
-      .get("https://api.quran.sutanlab.id/surah/")
-      .then((res) => {
-        this.setState({ surah: res.data.data });
-      })
-      .catch((err) => console.log(err));
+  async componentDidMount() {
+    try {
+      const res = await axios.get("https://api.quran.sutanlab.id/surah/");
+      this.setState({ surah: res.data.data });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
