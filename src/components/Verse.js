@@ -1,6 +1,7 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import "../index.css";
+import NumSurahIcon from "../asset/ayah-num.png";
 
 export default function Verse(props) {
   return (
@@ -8,15 +9,17 @@ export default function Verse(props) {
       <Flex justifyContent="space-between">
         <Box pr={4}>
           <Flex
-            w={{ base: 8, md: 10 }}
-            h={{ base: 8, md: 10 }}
+            w={{ base: 12, md: 16 }}
+            h={{ base: 12, md: 16 }}
             borderRadius="50%"
-            bgColor="yellow.200"
             alignItems="center"
             justifyContent="center"
+            bgImage={NumSurahIcon}
+            bgRepeat="no-repeat"
+            bgPosition="center"
           >
             <Text
-              fontSize={{ base: 16, md: 20 }}
+              fontSize={{ base: 12, md: 16 }}
               textAlign="center"
               color="gray.800"
             >

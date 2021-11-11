@@ -1,6 +1,7 @@
 import { Text, Flex, Box } from "@chakra-ui/react";
 import React, { Component } from "react";
 import "../index.css";
+import NumSurahIcon from "../asset/ayah-num.png";
 
 export default class Surah extends Component {
   constructor(props) {
@@ -42,41 +43,42 @@ export default class Surah extends Component {
         onClick={() => this.props.goDetail(this.state.surahNum)}
         cursor="pointer"
       >
-        <Box>
-          <Flex alignItems="center">
-            <Box>
-              <Flex
-                w={{ base: 8, md: 10 }}
-                h={{ base: 8, md: 10 }}
-                borderRadius="50%"
-                bgColor="yellow.200"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <Text
-                  fontSize={{ base: 16, md: 20 }}
-                  textAlign="center"
-                  color="gray.800"
-                >
-                  {this.state.surahNum}
-                </Text>
-              </Flex>
-            </Box>
-            <Box ml={4}>
+        <Flex alignItems="center">
+          <Box>
+            <Flex
+              w={{ base: 12, md: 16 }}
+              h={{ base: 12, md: 16 }}
+              borderRadius="50%"
+              alignItems="center"
+              justifyContent="center"
+              bgImage={NumSurahIcon}
+              bgRepeat="no-repeat"
+              bgPosition="center"
+            >
               <Text
-                fontSize={{ base: 20, md: 24 }}
-                onClick={() => this.props.goDetail(this.state.surahNum)}
-                cursor="pointer"
-                _hover={{ color: { md: "brand.900" } }}
+                fontSize={{ base: 12, md: 16 }}
+                textAlign="center"
+                color="gray.800"
               >
-                Surah {this.state.surahNameId}
+                {this.state.surahNum}
               </Text>
-              <Text fontSize={{ base: 14, md: 20 }}>
-                {this.state.translation} - {this.state.verses} ayat
-              </Text>
-            </Box>
-          </Flex>
-        </Box>
+            </Flex>
+          </Box>
+          <Box ml={4}>
+            <Text
+              fontSize={{ base: 20, md: 24 }}
+              onClick={() => this.props.goDetail(this.state.surahNum)}
+              cursor="pointer"
+              _hover={{ color: { md: "brand.900" } }}
+            >
+              Surah {this.state.surahNameId}
+            </Text>
+            <Text fontSize={{ base: 14, md: 20 }}>
+              {this.state.translation} - {this.state.verses} ayat
+            </Text>
+          </Box>
+        </Flex>
+
         <Box>
           <Text
             className="arabic"
