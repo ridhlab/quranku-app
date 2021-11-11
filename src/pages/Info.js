@@ -83,9 +83,21 @@ export default function Info() {
               <Text>Sponsored by</Text>
             </Box>
             <Flex justifyContent="center">
-              <Image src={ReactLogo} px={2} />
-              <Image src={ChakraLogo} px={2} />
-              <Image src={VercelLogo} px={2} />
+              <Box px={2}>
+                <Link href="https://www.reactjs.org" isExternal>
+                  <Image src={ReactLogo} alt="react-logo" />
+                </Link>
+              </Box>
+              <Box px={2}>
+                <Link href="https://www.chakra-ui.com" isExternal>
+                  <Image src={ChakraLogo} alt="chakraui-logo" />
+                </Link>
+              </Box>
+              <Box px={2}>
+                <Link href="https://www.vercel.com" isExternal>
+                  <Image src={VercelLogo} />
+                </Link>
+              </Box>
             </Flex>
           </Box>
         </Box>

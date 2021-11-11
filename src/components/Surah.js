@@ -64,7 +64,7 @@ export default class Surah extends Component {
               </Text>
             </Flex>
           </Box>
-          <Box ml={4}>
+          <Box ml={2}>
             <Text
               fontSize={{ base: 20, md: 24 }}
               onClick={() => this.props.goDetail(this.state.surahNum)}
