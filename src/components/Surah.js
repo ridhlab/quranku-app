@@ -55,11 +55,7 @@ export default class Surah extends Component {
               bgRepeat="no-repeat"
               bgPosition="center"
             >
-              <Text
-                fontSize={{ base: 12, md: 16 }}
-                textAlign="center"
-                color="gray.800"
-              >
+              <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
                 {this.state.surahNum}
               </Text>
             </Flex>

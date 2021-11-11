@@ -18,11 +18,7 @@ export default function Verse(props) {
             bgRepeat="no-repeat"
             bgPosition="center"
           >
-            <Text
-              fontSize={{ base: 12, md: 16 }}
-              textAlign="center"
-              color="gray.800"
-            >
+            <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
               {props.verse.number.inSurah}
             </Text>
           </Flex>
