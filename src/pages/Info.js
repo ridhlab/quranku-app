@@ -41,23 +41,14 @@ export default function Info() {
           <Box>
             <Box>
               <Text>
-                Made with{" "}
+                Contents licensed under{" "}
                 <Link
                   color="yellow.400"
                   _hover={{ color: "yellow.200" }}
-                  href="https://reactjs.org/"
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id"
                   isExternal
                 >
-                  React JS
-                </Link>
-                , Styling with{" "}
-                <Link
-                  color="yellow.400"
-                  _hover={{ color: "yellow.200" }}
-                  href="https://chakra-ui.com/"
-                  isExternal
-                >
-                  Chakra UI
+                  CC BY-NC-SA 4.0.
                 </Link>
               </Text>
             </Box>
