@@ -4,8 +4,7 @@ import LogoImg from "../asset/logo.png";
 
 export default function Info() {
   const heightViewport = window.innerHeight - 81;
-  console.log(window.innerHeight);
-  console.log(document.documentElement.clientHeight);
+
   return (
     <Flex
       h={heightViewport}
