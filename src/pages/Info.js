@@ -18,7 +18,7 @@ export default function Info() {
     >
       <Box>
         <Box textAlign="center" pb={4}>
-          <Image src={BrandLogo} alt="quranku-logo" m="auto" />
+          <Image src={BrandLogo} alt="quranku-logo" m="auto" width={100} />
         </Box>
         <Box textAlign="center">
           <Text fontSize={24} fontWeight={625}>
@@ -71,22 +71,22 @@ export default function Info() {
           </Box>
           <Box py={4}>
             <Box py={2}>
-              <Text>Sponsored by</Text>
+              <Text>Powered by</Text>
             </Box>
             <Flex justifyContent="center">
               <Box px={2}>
                 <Link href="https://www.reactjs.org" isExternal>
-                  <Image src={ReactLogo} alt="react-logo" />
+                  <Image src={ReactLogo} alt="react-logo" width={28} />
                 </Link>
               </Box>
               <Box px={2}>
                 <Link href="https://www.chakra-ui.com" isExternal>
-                  <Image src={ChakraLogo} alt="chakraui-logo" />
+                  <Image src={ChakraLogo} alt="chakraui-logo" width={28} />
                 </Link>
               </Box>
               <Box px={2}>
                 <Link href="https://www.vercel.com" isExternal>
-                  <Image src={VercelLogo} />
+                  <Image src={VercelLogo} alt="vercel-logo" width={28} />
                 </Link>
               </Box>
             </Flex>

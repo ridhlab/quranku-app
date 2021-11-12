@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Box, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Text, useColorModeValue, Flex } from "@chakra-ui/react";
 import Verse from "../components/Verse";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "../index.css";
 
 const BgHeading = () => {
@@ -50,18 +51,49 @@ export default class Surah extends Component {
         border={{ base: "0px", md: "1px" }}
         borderColor={{ base: null, md: "brand.900" }}
       >
-        <Box
+        <Flex
           textAlign="center"
           py={2}
           position="sticky"
           top={20}
           bgColor={BgHeading}
+          justifyContent="space-around"
+          alignItems="center"
         >
-          <Text fontSize={24}>{this.state.surahName}</Text>
-          <Text fontSize={20}>
-            {this.state.surahTranslation} - {this.state.versesNum} ayat
-          </Text>
-        </Box>
+          <Box>
+            {this.state.numSurah === "1" ? null : (
+              <Text
+                onClick={() =>
+                  this.props.history.push(
+                    `/surah/${parseInt(this.state.numSurah) - 1}`
+                  )
+                }
+              >
+                <BsArrowLeftCircleFill size={24} color="#aaaaaa" />
+              </Text>
+            )}
+          </Box>
+
+          <Box>
+            <Text fontSize={20}>{this.state.surahName}</Text>
+            <Text fontSize={16}>
+              {this.state.surahTranslation} - {this.state.versesNum} ayat
+            </Text>
+          </Box>
+          <Box>
+            {this.state.numSurah === "114" ? null : (
+              <Text
+                onClick={() =>
+                  this.props.history.push(
+                    `/surah/${parseInt(this.state.numSurah) + 1}`
+                  )
+                }
+              >
+                <BsArrowRightCircleFill size={24} color="#aaaaaa" />
+              </Text>
+            )}
+          </Box>
+        </Flex>
         <Box px={4}>
           <Box py={4}>
             <Text className="arabic" fontSize={32} textAlign="right">

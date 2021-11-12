@@ -54,6 +54,7 @@ export default class Surah extends Component {
               bgImage={NumSurahIcon}
               bgRepeat="no-repeat"
               bgPosition="center"
+              bgSize={40}
             >
               <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
                 {this.state.surahNum}
