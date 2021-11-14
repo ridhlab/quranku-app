@@ -3,6 +3,7 @@ import axios from "axios";
 import { Box, Text, useColorModeValue, Flex } from "@chakra-ui/react";
 import Verse from "../components/Verse";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { Link as LinkRoute } from "react-router-dom";
 import "../index.css";
 
 const BgHeading = () => {
@@ -22,6 +23,7 @@ export default class Surah extends Component {
       verses: [],
     };
   }
+
   async componentDidMount() {
     try {
       const res = await axios.get(
@@ -62,15 +64,9 @@ export default class Surah extends Component {
         >
           <Box>
             {this.state.numSurah === "1" ? null : (
-              <Text
-                onClick={() =>
-                  this.props.history.push(
-                    `/surah/${parseInt(this.state.numSurah) - 1}`
-                  )
-                }
-              >
+              <LinkRoute to={`/surah/${parseInt(this.state.numSurah) - 1}`}>
                 <BsArrowLeftCircleFill size={24} color="#aaaaaa" />
-              </Text>
+              </LinkRoute>
             )}
           </Box>
 
@@ -82,15 +78,9 @@ export default class Surah extends Component {
           </Box>
           <Box>
             {this.state.numSurah === "114" ? null : (
-              <Text
-                onClick={() =>
-                  this.props.history.push(
-                    `/surah/${parseInt(this.state.numSurah) + 1}`
-                  )
-                }
-              >
+              <LinkRoute to={`/surah/${parseInt(this.state.numSurah) + 1}`}>
                 <BsArrowRightCircleFill size={24} color="#aaaaaa" />
-              </Text>
+              </LinkRoute>
             )}
           </Box>
         </Flex>
