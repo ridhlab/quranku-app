@@ -17,6 +17,7 @@ export default function Verse(props) {
             bgImage={NumSurahIcon}
             bgRepeat="no-repeat"
             bgPosition="center"
+            bgSize={40}
           >
             <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
               {props.verse.number.inSurah}
