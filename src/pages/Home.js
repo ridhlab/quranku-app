@@ -20,7 +20,6 @@ class Home extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.value);
     this.setState({ searchField: e.target.value });
     const filteredSurah = this.filterSurah(
       this.state.surah,
@@ -34,7 +33,6 @@ class Home extends Component {
   };
 
   filterSurah(surah, query) {
-    console.log(query);
     if (!query) {
       return surah;
     }
