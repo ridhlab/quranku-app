@@ -13,7 +13,7 @@
 ## Features
 
 :ballot_box_with_check: Dark theme <br>
-:ballot_box_with_check: Translation surah and ayah to Indonesia <br>
+:ballot_box_with_check: Translation surah and ayah to Indonesian <br>
 :ballot_box_with_check: Search bar <br>
 
 ## Screenshot
