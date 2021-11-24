@@ -8,7 +8,7 @@
 
 ## Live Website
 
-<https://www.quranku-app.vercel.app>
+<https://quranku-app.vercel.app/>
 
 ## Features
 
