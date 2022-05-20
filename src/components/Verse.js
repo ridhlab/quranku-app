@@ -1,6 +1,8 @@
 import React from 'react';
 import '../index.css';
 import { Box, Text, Flex } from '@chakra-ui/react';
+
+// Icons
 import NumSurahIcon from '../asset/ayah-num.png';
 
 const Verse = React.memo((props) => {

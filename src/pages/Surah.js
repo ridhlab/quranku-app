@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 import { Box, Text, useColorModeValue, Flex } from '@chakra-ui/react';
+
+// Cmponents
 import Verse from '../components/Verse';
+
+// React Icons
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
+
+// React Router
 import { Link as LinkRoute, useParams } from 'react-router-dom';
 
+// Library
 import axios from 'axios';
 
 const BgHeading = () => {
@@ -20,7 +27,6 @@ const Surah = () => {
   const fetchData = async () => {
     try {
       const res = await axios.get(`https://api.quran.sutanlab.id/surah/${surahId}`);
-      console.log(res.data.data);
       setSurahData(res.data.data);
     } catch (error) {
       console.log(error);
@@ -43,7 +49,11 @@ const Surah = () => {
         alignItems="center"
       >
         <Box>
-          {surahId === '1' ? null : (
+          {surahId === '1' ? (
+            <Box visibility="hidden">
+              <BsArrowLeftCircleFill size={24} color="#aaaaaa" />
+            </Box>
+          ) : (
             <LinkRoute to={`/surah/${parseInt(surahId) - 1}`}>
               <BsArrowLeftCircleFill size={24} color="#aaaaaa" />
             </LinkRoute>
@@ -56,7 +66,11 @@ const Surah = () => {
           </Text>
         </Box>
         <Box>
-          {surahId === '114' ? null : (
+          {surahId === '114' ? (
+            <Box visibility="hidden">
+              <BsArrowRightCircleFill size={24} color="#aaaaaa" />
+            </Box>
+          ) : (
             <LinkRoute to={`/surah/${parseInt(surahId) + 1}`}>
               <BsArrowRightCircleFill size={24} color="#aaaaaa" />
             </LinkRoute>
@@ -70,7 +84,7 @@ const Surah = () => {
           </Text>
         </Box>
         <Box>
-          {surahData?.verses.map((verse) => {
+          {surahData?.verses?.map((verse) => {
             return <Verse key={verse.number.inSurah} verse={verse} />;
           })}
         </Box>

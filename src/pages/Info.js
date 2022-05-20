@@ -1,5 +1,7 @@
-import { Box, Text, Image, Link, Flex } from '@chakra-ui/react';
 import React from 'react';
+import { Box, Text, Image, Link, Flex } from '@chakra-ui/react';
+
+// Logo
 import BrandLogo from '../asset/logo.png';
 import ReactLogo from '../asset/react-logo.png';
 import ChakraLogo from '../asset/chakra-logo.png';

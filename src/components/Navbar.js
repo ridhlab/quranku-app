@@ -1,6 +1,10 @@
 import React from 'react';
 import { Box, Flex, Heading } from '@chakra-ui/react';
+
+// React Router
 import { Link as LinkRoute } from 'react-router-dom';
+
+// React Icons
 import { BsInfoCircleFill } from 'react-icons/bs';
 
 const Navbar = React.memo(() => {

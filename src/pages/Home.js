@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@chakra-ui/layout';
 import { Box, Input, useColorModeValue } from '@chakra-ui/react';
-import axios from 'axios';
+
+// Components
 import Surah from '../components/Surah';
-import { withRouter } from 'react-router';
+
+// Library
+import axios from 'axios';
 
 const BgSearch = () => {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -47,9 +50,6 @@ const Home = () => {
     fetchData();
   }, []);
 
-  console.log(isSearching);
-
-  console.log(searchingVal);
   return (
     <>
       <Box py={4} position="sticky" top={20} bgColor={BgSearch} px={{ base: 4, md: 0 }}>

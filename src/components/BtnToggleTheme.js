@@ -1,5 +1,7 @@
 import React from 'react';
 import { Flex, Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
+
+// React Icons
 import { IoCloudyNightOutline } from 'react-icons/io5';
 import { WiDaySunny } from 'react-icons/wi';
 

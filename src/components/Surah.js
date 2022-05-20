@@ -1,7 +1,11 @@
 import React from 'react';
 import '../index.css';
 import { Text, Flex, Box } from '@chakra-ui/react';
+
+// Icons
 import NumSurahIcon from '../asset/ayah-num.png';
+
+// React Router
 import { useHistory } from 'react-router-dom';
 
 const Surah = React.memo(({ surah }) => {
