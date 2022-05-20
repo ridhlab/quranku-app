@@ -1,18 +1,18 @@
-import { Box, Text, Image, Link, Flex } from "@chakra-ui/react";
-import React from "react";
-import BrandLogo from "../asset/logo.png";
-import ReactLogo from "../asset/react-logo.png";
-import ChakraLogo from "../asset/chakra-logo.png";
-import VercelLogo from "../asset/vercel-logo.png";
+import { Box, Text, Image, Link, Flex } from '@chakra-ui/react';
+import React from 'react';
+import BrandLogo from '../asset/logo.png';
+import ReactLogo from '../asset/react-logo.png';
+import ChakraLogo from '../asset/chakra-logo.png';
+import VercelLogo from '../asset/vercel-logo.png';
 
-export default function Info() {
+const Info = () => {
   const heightViewport = window.innerHeight - 81;
 
   return (
     <Flex
       h={heightViewport}
-      border={{ base: "0px", md: "1px" }}
-      borderColor={{ base: null, md: "brand.900" }}
+      border={{ base: '0px', md: '1px' }}
+      borderColor={{ base: null, md: 'brand.900' }}
       alignItems="center"
       justifyContent="center"
     >
@@ -25,14 +25,14 @@ export default function Info() {
             Sumber Data API
           </Text>
           <Text fontSize={16}>
-            Quran API from{" "}
+            Quran API from{' '}
             <Link
               color="yellow.400"
-              _hover={{ color: "yellow.200" }}
+              _hover={{ color: 'yellow.200' }}
               href="https://github.com/sutanlab/quran-api"
               isExternal
             >
-              {" "}
+              {' '}
               Sutanlab
             </Link>
           </Text>
@@ -41,10 +41,10 @@ export default function Info() {
           <Box>
             <Box>
               <Text>
-                Contents licensed under{" "}
+                Contents licensed under{' '}
                 <Link
                   color="yellow.400"
-                  _hover={{ color: "yellow.200" }}
+                  _hover={{ color: 'yellow.200' }}
                   href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id"
                   isExternal
                 >
@@ -56,10 +56,10 @@ export default function Info() {
               <Text>
                 MIT License © 2021 - present
                 <Text>
-                  By{" "}
+                  By{' '}
                   <Link
                     color="yellow.400"
-                    _hover={{ color: "yellow.200" }}
+                    _hover={{ color: 'yellow.200' }}
                     href="https://github.com/ridlwan17"
                     isExternal
                   >
@@ -94,10 +94,10 @@ export default function Info() {
         </Box>
         <Box>
           <Text textAlign="center">
-            Visit{" "}
+            Visit{' '}
             <Link
               color="yellow.400"
-              _hover={{ color: "yellow.200" }}
+              _hover={{ color: 'yellow.200' }}
               href="https://github.com/ridlwan17/quranku-app"
               isExternal
             >
@@ -108,4 +108,6 @@ export default function Info() {
       </Box>
     </Flex>
   );
-}
+};
+
+export default Info;

@@ -1,9 +1,9 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
-import React from "react";
-import "../index.css";
-import NumSurahIcon from "../asset/ayah-num.png";
+import React from 'react';
+import '../index.css';
+import { Box, Text, Flex } from '@chakra-ui/react';
+import NumSurahIcon from '../asset/ayah-num.png';
 
-export default function Verse(props) {
+const Verse = React.memo((props) => {
   return (
     <Box py={4}>
       <Flex justifyContent="space-between">
@@ -33,4 +33,6 @@ export default function Verse(props) {
       </Box>
     </Box>
   );
-}
+});
+
+export default Verse;

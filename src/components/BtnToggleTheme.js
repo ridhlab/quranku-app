@@ -1,11 +1,11 @@
-import React from "react";
-import { Flex, Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { IoCloudyNightOutline } from "react-icons/io5";
-import { WiDaySunny } from "react-icons/wi";
+import React from 'react';
+import { Flex, Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { IoCloudyNightOutline } from 'react-icons/io5';
+import { WiDaySunny } from 'react-icons/wi';
 
-export const BtnToggleTheme = () => {
+const BtnToggleTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue("white", "gray.700");
+  const bgColor = useColorModeValue('white', 'gray.700');
   return (
     <Box position="sticky" top={{ base: 560, md: 600 }} px={4}>
       <Box position="absolute" right={4} onClick={toggleColorMode}>
@@ -21,14 +21,12 @@ export const BtnToggleTheme = () => {
             justifyContent="center"
             marginLeft="auto"
           >
-            {colorMode === "light" ? (
-              <IoCloudyNightOutline size={28} />
-            ) : (
-              <WiDaySunny size={40} />
-            )}
+            {colorMode === 'light' ? <IoCloudyNightOutline size={28} /> : <WiDaySunny size={40} />}
           </Flex>
         </Flex>
       </Box>
     </Box>
   );
 };
+
+export default BtnToggleTheme;

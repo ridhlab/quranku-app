@@ -1,91 +1,64 @@
-import { Text, Flex, Box } from "@chakra-ui/react";
-import React, { Component } from "react";
-import "../index.css";
-import NumSurahIcon from "../asset/ayah-num.png";
+import React from 'react';
+import '../index.css';
+import { Text, Flex, Box } from '@chakra-ui/react';
+import NumSurahIcon from '../asset/ayah-num.png';
+import { useHistory } from 'react-router-dom';
 
-export default class Surah extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      surahNum: "",
-      surahName: "",
-      verses: "",
-      translation: "",
-      surahNameId: "",
-    };
-  }
+const Surah = React.memo(({ surah }) => {
+  const history = useHistory();
+  const { name, number, numberOfVerses } = surah;
 
-  componentDidMount() {
-    try {
-      const surahName = this.props.surah.name.long;
-      this.setState({ surahName: surahName });
-      const surahNum = this.props.surah.number;
-      this.setState({ surahNum: surahNum });
-      const surahNameId = this.props.surah.name.transliteration.id;
-      this.setState({ surahNameId: surahNameId });
-      const surahVerses = this.props.surah.numberOfVerses;
-      this.setState({ verses: surahVerses });
-      const translation = this.props.surah.name.translation.id;
-      this.setState({ translation: translation });
-    } catch (err) {}
-  }
-
-  render() {
-    return (
-      <Flex
-        justifyContent="space-between"
-        alignItems="center"
-        border="1px"
-        borderColor="brand.900"
-        p={4}
-        borderRadius={8}
-        mb={4}
-        onClick={() => this.props.goDetail(this.state.surahNum)}
-        cursor="pointer"
-      >
-        <Flex alignItems="center">
-          <Box>
-            <Flex
-              w={{ base: 12, md: 16 }}
-              h={{ base: 12, md: 16 }}
-              borderRadius="50%"
-              alignItems="center"
-              justifyContent="center"
-              bgImage={NumSurahIcon}
-              bgRepeat="no-repeat"
-              bgPosition="center"
-              bgSize={40}
-            >
-              <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
-                {this.state.surahNum}
-              </Text>
-            </Flex>
-          </Box>
-          <Box ml={2}>
-            <Text
-              fontSize={{ base: 20, md: 24 }}
-              onClick={() => this.props.goDetail(this.state.surahNum)}
-              cursor="pointer"
-              _hover={{ color: { md: "brand.900" } }}
-            >
-              Surah {this.state.surahNameId}
-            </Text>
-            <Text fontSize={{ base: 14, md: 20 }}>
-              {this.state.translation} - {this.state.verses} ayat
-            </Text>
-          </Box>
-        </Flex>
-
+  return (
+    <Flex
+      justifyContent="space-between"
+      alignItems="center"
+      border="1px"
+      borderColor="brand.900"
+      p={4}
+      borderRadius={8}
+      mb={4}
+      onClick={() => history.push(`/surah/${number}`)}
+      cursor="pointer"
+    >
+      <Flex alignItems="center">
         <Box>
-          <Text
-            className="arabic"
-            fontSize={{ base: 20, md: 28 }}
-            textAlign="right"
+          <Flex
+            w={{ base: 12, md: 16 }}
+            h={{ base: 12, md: 16 }}
+            borderRadius="50%"
+            alignItems="center"
+            justifyContent="center"
+            bgImage={NumSurahIcon}
+            bgRepeat="no-repeat"
+            bgPosition="center"
+            bgSize={40}
           >
-            {this.state.surahName}
+            <Text fontSize={{ base: 12, md: 16 }} textAlign="center">
+              {number}
+            </Text>
+          </Flex>
+        </Box>
+        <Box ml={2}>
+          <Text
+            fontSize={{ base: 20, md: 24 }}
+            onClick={() => history.push(`/surah/${number}`)}
+            cursor="pointer"
+            _hover={{ color: { md: 'brand.900' } }}
+          >
+            Surah {name.transliteration.id}
+          </Text>
+          <Text fontSize={{ base: 14, md: 20 }}>
+            {name.translation.id} - {numberOfVerses} ayat
           </Text>
         </Box>
       </Flex>
-    );
-  }
-}
+      <Box>
+        <Text className="arabic" fontSize={{ base: 20, md: 28 }} textAlign="right">
+          {name.long}
+        </Text>
+      </Box>
+    </Flex>
+  );
+});
+
+export default Surah;

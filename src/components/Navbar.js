@@ -1,9 +1,9 @@
-import React from "react";
-import { Box, Flex, Heading } from "@chakra-ui/react";
-import { Link as LinkRoute } from "react-router-dom";
-import { BsInfoCircleFill } from "react-icons/bs";
+import React from 'react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Link as LinkRoute } from 'react-router-dom';
+import { BsInfoCircleFill } from 'react-icons/bs';
 
-export const Navbar = () => {
+const Navbar = React.memo(() => {
   return (
     <Box position="sticky" top={0}>
       <Flex
@@ -24,4 +24,6 @@ export const Navbar = () => {
       </Flex>
     </Box>
   );
-};
+});
+
+export default Navbar;

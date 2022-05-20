@@ -1,88 +1,77 @@
-import { Container } from "@chakra-ui/layout";
-import { Box, Input, useColorModeValue } from "@chakra-ui/react";
-import axios from "axios";
-import React, { Component } from "react";
-import Surah from "../components/Surah";
-import { withRouter } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { Container } from '@chakra-ui/layout';
+import { Box, Input, useColorModeValue } from '@chakra-ui/react';
+import axios from 'axios';
+import Surah from '../components/Surah';
+import { withRouter } from 'react-router';
 
 const BgSearch = () => {
-  const bgColor = useColorModeValue("white", "gray.800");
+  const bgColor = useColorModeValue('white', 'gray.800');
   return bgColor;
 };
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      surah: [],
-      filteredSurah: [],
-      searchField: "",
-    };
-  }
 
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value });
-    const filteredSurah = this.filterSurah(
-      this.state.surah,
-      this.state.searchField
-    );
-    this.setState({ filteredSurah: filteredSurah });
-  };
+const Home = () => {
+  const [surah, setSurah] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [filteredSurah, setFilteredSurah] = useState([]);
+  const [searchingVal, setSearchingVal] = useState('');
 
-  handleDetail = (id) => {
-    this.props.history.push(`/surah/${id}`);
-  };
-
-  filterSurah(surah, query) {
-    if (!query) {
-      return surah;
-    }
-
-    return surah.filter((surah) => {
-      const surahName = surah.name.transliteration.id.toLowerCase();
-      return surahName.includes(query);
-    });
-  }
-
-  async componentDidMount() {
+  const fetchData = async () => {
     try {
-      const res = await axios.get("https://api.quran.sutanlab.id/surah/");
-      this.setState({ surah: res.data.data, filteredSurah: res.data.data });
+      const res = await axios.get('https://api.quran.sutanlab.id/surah/');
+      setSurah(res.data.data);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
-  render() {
-    return (
-      <>
-        <Box
-          py={4}
-          position="sticky"
-          top={20}
-          bgColor={BgSearch}
-          px={{ base: 4, md: 0 }}
-        >
-          <Input
-            placeholder="Cari surah..."
-            border="1px"
-            borderColor="brand.900"
-            onChange={this.handleChange}
-          />
-        </Box>
-        <Container maxW="container.md" py={2} px={{ base: 4, md: 0 }}>
-          {this.state.filteredSurah.map((surah) => {
-            return (
-              <Surah
-                key={surah.number}
-                surah={surah}
-                goDetail={this.handleDetail}
-              />
-            );
-          })}
-        </Container>
-      </>
-    );
-  }
-}
+  const filterSurah = (surah, keyword) => {
+    return surah.filter((surah) => {
+      const surahName = surah.name.transliteration.id.toLowerCase();
+      return surahName.includes(keyword);
+    });
+  };
 
-export default withRouter(Home);
+  const handleChange = (value) => {
+    setSearchingVal(value);
+    if (value !== '') {
+      setIsSearching(true);
+      const filtered = filterSurah(surah, value);
+      setFilteredSurah(filtered);
+    } else {
+      setIsSearching(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(isSearching);
+
+  console.log(searchingVal);
+  return (
+    <>
+      <Box py={4} position="sticky" top={20} bgColor={BgSearch} px={{ base: 4, md: 0 }}>
+        <Input
+          placeholder="Cari surah..."
+          border="1px"
+          borderColor="brand.900"
+          value={searchingVal}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </Box>
+      <Container maxW="container.md" py={2} px={{ base: 4, md: 0 }}>
+        {isSearching
+          ? filteredSurah.map((surah, idx) => {
+              return <Surah key={surah.number} surah={surah} />;
+            })
+          : surah.map((surah, idx) => {
+              return <Surah key={surah.number} surah={surah} />;
+            })}
+      </Container>
+    </>
+  );
+};
+
+export default Home;
