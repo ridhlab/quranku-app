@@ -62,7 +62,7 @@ const Info = () => {
                   <Link
                     color="yellow.400"
                     _hover={{ color: 'yellow.200' }}
-                    href="https://github.com/ridlwan17"
+                    href="https://github.com/ridhlab"
                     isExternal
                   >
                     Muhammad Ridwan
@@ -100,7 +100,7 @@ const Info = () => {
             <Link
               color="yellow.400"
               _hover={{ color: 'yellow.200' }}
-              href="https://github.com/ridlwan17/quranku-app"
+              href="https://github.com/ridhlab/quranku-app"
               isExternal
             >
               sourcecode
